@@ -1,6 +1,7 @@
 package com.example.learningroomdb
 
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -26,9 +27,15 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        GlobalScope.launch {
-            database.contactDao().insertContact(Contact(0,"vivek","9876543210"))
-        }
+//        GlobalScope.launch {
+//            database.contactDao().insertContact(Contact(0,"vivek","9876543210"))
+//        }
 
     }
+
+    fun getData(view: View) {
+        database.contactDao().getContact().observe(this){
+            Toast.makeText(this,it.toString(),Toast.LENGTH_SHORT).show()
+        }
     }
+}
