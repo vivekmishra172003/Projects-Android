@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.finalproject.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -13,10 +14,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mGoogleSignInClient: com.google.android.gms.auth.api.signin.GoogleSignInClient
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -27,28 +30,24 @@ class MainActivity : AppCompatActivity() {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        val signInButton = findViewById<Button>(R.id.sign_in_button)
-        signInButton.setOnClickListener {
+        binding.signInButton.setOnClickListener {
             signIn()
         }
 
-        val signUpButton = findViewById<Button>(R.id.sign_up_button)
-        signUpButton.setOnClickListener {
+        binding.signUpButton.setOnClickListener {
             signUp()
         }
 
-        val button1 = findViewById<Button>(R.id.button1)
-        button1.setOnClickListener {
-            // Add your logic for button1 here
+        binding.button1.setOnClickListener {
+            val intent = Intent(this, Cal::class.java)
+            startActivity(intent)
         }
 
-        val button2 = findViewById<Button>(R.id.button2)
-        button2.setOnClickListener {
+        binding.button2.setOnClickListener {
             // Add your logic for button2 here
         }
 
-        val button3 = findViewById<Button>(R.id.button3)
-        button3.setOnClickListener {
+        binding.button3.setOnClickListener {
             // Add your logic for button3 here
         }
     }
