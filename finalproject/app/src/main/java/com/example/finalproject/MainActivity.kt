@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.button3.setOnClickListener {
             // Add your logic for button3 here
+            val intent = Intent(this, VideoSelectorActivity::class.java)
+            startActivity(intent)
         }
     }
 
