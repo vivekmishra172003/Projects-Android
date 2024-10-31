@@ -74,4 +74,5 @@ dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.github.DImuthuUpe:AndroidPdfViewer:3.1.0-beta.1")
 }

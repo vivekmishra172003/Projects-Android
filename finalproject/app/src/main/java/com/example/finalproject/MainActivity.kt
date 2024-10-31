@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.button2.setOnClickListener {
-            // Add your logic for button2 here
+            val intent = Intent(this, Fourpdf::class.java)
+            startActivity(intent)
         }
 
         binding.button3.setOnClickListener {
